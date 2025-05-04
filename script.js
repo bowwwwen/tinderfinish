@@ -115,3 +115,88 @@ document.addEventListener('DOMContentLoaded', function() {
   // 首次渲染
   renderTalentCard(0);
 });
+
+
+
+
+  // 學生註冊→履歷填寫
+  document.getElementById('student-next').onclick = function() {
+    showPage('studentResume');
+  };
+  // 履歷填寫→履歷進度
+  document.getElementById('resume-next').onclick = function() {
+    showPage('resumeProgress');
+  };
+  // 履歷進度→動機填寫
+  document.getElementById('resume-motivation').onclick = function() {
+    showPage('motivation');
+  };
+  // 動機填寫→完成
+  document.getElementById('motivation-done').onclick = function() {
+    showPage('finish');
+  };
+
+  // 學生履歷進度→推薦職缺
+  document.getElementById('resume-progress-next').onclick = function() {
+    showPage('job-cards');
+    renderJobCard(0);
+    currentJob = 0;
+  };
+
+  // 推薦職缺卡片資料與渲染
+  const jobCardsData = [
+    {
+      title: '行銷企劃實習生',
+      company: 'A公司',
+      tags: ['#影音剪輯', '#社群經營', '#內容行銷'],
+      desc: '協助短影音剪輯、社群貼文、素材整理，需細心、具責任感。',
+      img: 'job1.jpg'
+    },
+    {
+      title: '社群小編',
+      company: 'B新創',
+      tags: ['#社群經營', '#文案撰寫'],
+      desc: '經營IG、FB，撰寫貼文、互動回覆，需創意與耐心。',
+      img: 'job2.jpg'
+    }
+    // 可再加入更多職缺
+  ];
+  let currentJob = 0;
+  function renderJobCard(idx) {
+    const t = jobCardsData[idx];
+    const area = document.querySelector('.job-cards-area');
+    area.innerHTML = `
+      <div class="job-card">
+        <img src="${t.img}" class="job-img" alt="${t.title}">
+        <div class="job-info">
+          <div class="job-title">${t.title}</div>
+          <div class="job-company">${t.company}</div>
+          <div class="job-tags">${t.tags.map(tag => `<div>${tag}</div>`).join('')}</div>
+          <div class="job-desc">${t.desc}</div>
+        </div>
+      </div>
+    `;
+  }
+  document.getElementById('job-prev').onclick = function() {
+    if (currentJob > 0) {
+      currentJob--;
+      renderJobCard(currentJob);
+    }
+  };
+  document.getElementById('job-next').onclick = function() {
+    if (currentJob < jobCardsData.length - 1) {
+      currentJob++;
+      renderJobCard(currentJob);
+    }
+  };
+
+  // 自訂 show 事件（for AI對話自動切換）
+  const origAdd = Element.prototype.classList.add;
+  Element.prototype.classList.add = function(...args) {
+    origAdd.apply(this.classList, args);
+    if (args.includes('active')) {
+      const evt = new Event('show');
+      this.dispatchEvent(evt);
+    }
+  };
+}); 
