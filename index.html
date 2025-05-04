@@ -1,53 +1,52 @@
-<!-- index.html -->
- <!DOCTYPE html>
- <html lang="zh-Hant">
- <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>TalenTag</title>
-   <link rel="stylesheet" href="style.css">
- </head>
- <body>
-   <div id="app">
-     <!-- 1. 首頁 -->
-     <section id="home" class="page active">
-       <div class="logo-block">
-         <img class="logo-icon" src="images/logo.svg" alt="TalenTag Logo">
-         <h1 class="logo-title">TalenTag</h1>
-         <div class="logo-desc"><span class="ai">AI</span>精準媒合人才與機會</div>
-       </div>
-       <div class="btn-group">
-         <button id="btn-company" class="main-btn">我是企業主</button>
-         <button id="btn-student" class="main-btn">我是學生</button>
-       </div>
-       <img class="arrow" src="images/arrow.svg" alt="向下箭頭">
-     </section>
- 
-     <!-- 2. 企業主註冊頁 -->
-     <section id="company-register" class="page">
-       <div class="logo-title-row">
-         <h1 class="logo-title">TalenTag</h1>
-         <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
-       </div>
-       <form class="form-block">
-         <input type="text" placeholder="公司名稱">
-         <input type="text" placeholder="聯絡人姓名">
-         <input type="email" placeholder="電子郵件">
-         <input type="text" placeholder="產業類別">
-         <input type="text" placeholder="公司簡介">
-         <input type="password" placeholder="設定密碼 / 第三方登入">
-       </form>
-       <button id="company-next" class="main-btn">下一步</button>
-       <img class="arrow" src="images/arrow.svg" alt="向下箭頭">
-     </section>
- 
-     <!-- 3. AI 對話頁（企業主） -->
-     <section id="company-chat" class="page">
-       <div class="logo-title-row">
-         <h1 class="logo-title">TalenTag</h1>
-         <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
-       </div>
-       <div class="chat-area" id="company-chat-area">
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalenTag</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- 1. 首頁 -->
+    <section id="home" class="page active">
+      <div class="logo-block">
+        <img class="logo-icon" src="images/logo.svg" alt="TalenTag Logo">
+        <h1 class="logo-title">TalenTag</h1>
+        <div class="logo-desc"><span class="ai">AI</span>精準媒合人才與機會</div>
+      </div>
+      <div class="btn-group">
+        <button id="btn-company" class="main-btn">我是企業主</button>
+        <button id="btn-student" class="main-btn">我是學生</button>
+      </div>
+      <img class="arrow" src="images/arrow.svg" alt="向下箭頭">
+    </section>
+
+    <!-- 2. 企業主註冊頁 -->
+    <section id="company-register" class="page">
+      <div class="logo-title-row">
+        <h1 class="logo-title">TalenTag</h1>
+        <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
+      </div>
+      <form class="form-block">
+        <input type="text" placeholder="公司名稱">
+        <input type="text" placeholder="聯絡人姓名">
+        <input type="email" placeholder="電子郵件">
+        <input type="text" placeholder="產業類別">
+        <input type="text" placeholder="公司簡介">
+        <input type="password" placeholder="設定密碼 / 第三方登入">
+      </form>
+      <button id="company-next" class="main-btn">下一步</button>
+      <img class="arrow" src="images/arrow.svg" alt="向下箭頭">
+    </section>
+
+    <!-- 3. AI 對話頁（企業主） -->
+    <section id="company-chat" class="page">
+      <div class="logo-title-row">
+        <h1 class="logo-title">TalenTag</h1>
+        <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
+      </div>
+      <div class="chat-area" id="company-chat-area">
          <div class="chat-bubble ai">嗨，我會協助您快速找到合適的實習生！<br>我們先從了解您的職缺開始：<br><b>請問您目前想招募的職缺名稱是什麼？</b></div>
          <div class="chat-bubble user">我想找行銷企劃的實習生</div>
          <div class="chat-bubble ai">好的，那這個職缺的主要工作內容大概有哪些呢？<br>（您可以簡單描述，例如「剪短影音、上字幕、協助素材整理」）</div>
@@ -58,32 +57,34 @@
        </div>
      </section>
  
-     <!-- 4. 人才卡片頁（滑動） -->
-     <section id="talent-cards" class="page">
-       <div class="logo-title-row">
-         <h1 class="logo-title">TalenTag</h1>
-         <img class="logo-icon small" src="logo.svg" alt="TalenTag Logo"/>
-       </div>
-       <div class="talent-cards-title">以下為您推薦第一批次的 10 位人選。</div>
-       <div class="talent-cards-area"><!-- JS 動態插入卡片 --></div>
-       <div class="talent-cards-controls">
-         <button id="card-prev" class="card-nav-btn">上一位</button>
-         <button id="contact-btn" class="main-btn">聯絡</button>
-       </div>
-       <form class="talent-card-input-area" onsubmit="return false;">
-         <input type="text" placeholder="加入更多條件" id="talent-card-input"/>
-         <button type="submit" id="talent-card-send">
-           <img src="send.svg" class="send-icon" alt="送出"/>
-         </button>
-       </form>
-     </section>
-     <!-- 5. 企業主聯絡 -->
-     <section id="company-contact" class="page">
-       <div class="logo-title-row">
-         <h1 class="logo-title">TalenTag</h1>
-         <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
-       </div>
-       <div class="chat-area" id="company-contact-area">
+    <!-- 4. 人才卡片頁（滑動） -->
+    <section id="talent-cards" class="page">
+      <div class="logo-title-row">
+        <h1 class="logo-title">TalenTag</h1>
+        <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo"/>
+      </div>
+      <div class="talent-cards-title">以下為您推薦第一批次的 10 位人選。</div>
+      <div class="talent-cards-area"><!-- JS 動態插入卡片 --></div>
+      <div class="talent-cards-controls">
+        <button id="card-prev" class="card-nav-btn">上一位</button>
+        <button id="card-next" class="card-nav-btn">下一位</button>
+        <button id="contact-btn" class="main-btn">聯絡</button>
+      </div>
+      <form class="talent-card-input-area" onsubmit="return false;">
+        <input type="text" placeholder="加入更多條件" id="talent-card-input"/>
+        <button type="submit" id="talent-card-send">
+          <img src="images/send.svg" class="send-icon" alt="送出"/>
+        </button>
+      </form>
+    </section>
+
+    <!-- 5. 企業主聯絡 -->
+    <section id="company-contact" class="page">
+      <div class="logo-title-row">
+        <h1 class="logo-title">TalenTag</h1>
+        <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo">
+      </div>
+      <div class="chat-area" id="company-contact-area">
          <div class="chat-bubble ai">Hi, 我是xx公司<br><b>Ｈi, 有幸加入</b></div>
          <div class="chat-bubble user">1234test</div>
          <div class="chat-bubble ai">好的5678<br>（您可以簡單描述，例如「剪短影音、上字幕、協助素材整理」）</div>
