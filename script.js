@@ -1,4 +1,5 @@
 // script.js
+
 document.addEventListener('DOMContentLoaded', function() {
   const pages = {
     home: document.getElementById('home'),
@@ -33,10 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('company-next')?.addEventListener('click', () => showPage('companyChat'));
   document.getElementById('contact-btn')?.addEventListener('click', () => showPage('companyContact'));
 
+  document.getElementById('student-next')?.addEventListener('click', () => showPage('studentResume'));
+  document.getElementById('resume-next')?.addEventListener('click', () => showPage('resumeProgress'));
+  document.getElementById('resume-progress-next')?.addEventListener('click', () => showPage('jobCards'));
+  document.getElementById('job-next')?.addEventListener('click', () => showPage('motivation'));
+  document.getElementById('motivation-done')?.addEventListener('click', () => showPage('finish'));
+
   const talentCardsData = [
     { name: '軒軒', school: '輔仁大學中文系大三', tags: ['#文字轉化力強', '#細心'], exp: ['提案競賽季軍'], img: './people/p.jpg' },
     { name: 'FJU',  school: '範例大學',              tags: ['#多才多藝'],            exp: ['社團幹部'],       img: './people/fju.jpg' }
   ];
+
   let currentCard = 0;
 
   function renderTalentCard(idx) {
@@ -45,29 +53,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.talent-cards-area').innerHTML = `
       <div class="talent-card">
-        <img class="talent-img" src="${data.img}" alt="">
-        <div class="talent-info">
-          <div class="talent-school">${data.school}</div>
-          <div class="talent-tags">${data.tags.map(t => `<div>${t}</div>`).join('')}</div>
-          <div class="talent-exp-title">實際經驗</div>
-          <ul class="talent-exp">${data.exp.map(e => `<li>${e}</li>`).join('')}</ul>
-        </div>
+        <img class="talent-img" src="${data.img}" alt="${data.name}" />
+        <h3 class="talent-name">${data.name}</h3>
+        <p class="talent-school">${data.school}</p>
+        <div class="talent-tags">${data.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}</div>
+        <ul class="talent-exp">${data.exp.map(e => `<li>${e}</li>`).join('')}</ul>
       </div>
     `;
-
-    // 若你已實作 attachSwipe，請取消註解下一行
-    // attachSwipe(document.querySelector('.talent-card'));
   }
 
   document.getElementById('card-prev')?.addEventListener('click', () => {
-    if (currentCard > 0) renderTalentCard(--currentCard);
+    if (currentCard > 0) {
+      currentCard--;
+      renderTalentCard(currentCard);
+    }
   });
-
-  document.getElementById('card-next')?.addEventListener('click', () => {
-    if (currentCard < talentCardsData.length - 1) renderTalentCard(++currentCard);
-  });
-
-  if (talentCardsData.length > 0) {
-    renderTalentCard(0);
-  }
 });
