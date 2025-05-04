@@ -1,9 +1,4 @@
 
----
-
-### ✅ 綜合修正後版本：
-
-```js
 document.addEventListener('DOMContentLoaded', function() {
 const pages = {
  home: document.getElementById('home'),
