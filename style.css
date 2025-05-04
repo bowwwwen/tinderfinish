@@ -1,39 +1,39 @@
 /* style.css */
- body {
-   background: #fff;
-   font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif;
-   margin: 0;
-   padding: 0;
- }
- #app {
-   width: 100vw;
-   min-height: 100vh;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: flex-start;
- }
- .page {
-   display: none;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   min-height: 100vh;
-   width: 100vw;
- }
- .page.active {
-   display: flex;
- }
- .logo-block {
-   margin-top: 48px;
-   text-align: center;
- }
- .logo-icon {
-   width: 120px;
-   height: 120px;
-   margin: 0 auto 16px auto;
-   background: url('logo.svg') no-repeat center/contain;
- }
+body {
+  background: #fff;
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+#app {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.page {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+.page.active {
+  display: flex;
+}
+.logo-block {
+  margin-top: 48px;
+  text-align: center;
+}
+.logo-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px auto;
+  background: url('logo.svg') no-repeat center/contain;
+}
  .logo-title {
    font-size: 48px;
    font-weight: bold;
