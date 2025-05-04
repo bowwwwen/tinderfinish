@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="talent-exp-title">實際經驗</div>
           <ul class="talent-exp">${data.exp.map(e=>`<li>${e}</li>`).join('')}</ul>
         </div>
-      </div>
-    `;
+      </div>`;
+    
     attachSwipe(document.querySelector('.talent-card'));
   }
 
@@ -60,6 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentCard > 0) renderTalentCard(--currentCard);
   };
   document.getElementById('card-next').onclick = () => {
-    if (curren
+    if (currentCard < talentCardsData.length - 1) renderTalentCard(++currentCard);
   renderTalentCard(0);
 });
