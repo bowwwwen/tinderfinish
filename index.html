@@ -54,26 +54,25 @@
          <div class="chat-bubble ai">了解了～這份工作偏向創意內容製作，我來幫您找適合的學生，接下來想請問：<br>您對這位實習生有沒有一些希望具備的特質或技能？<br>（如「細心」、「懂 Premiere」、「美感好」）</div>
          <div class="chat-bubble user">會剪影片，最好有用過 Premiere，個性細心、有責任感。請推薦我十位人才</div>
          <div class="chat-bubble ai loading"><span class="loading-spinner"></span> TalenTag AI Agent 正在為您媒合人才.....</div>
-       </div>
-     </section>
- 
+      </div>
+    </section>
+
     <!-- 4. 人才卡片頁（滑動） -->
     <section id="talent-cards" class="page">
       <div class="logo-title-row">
         <h1 class="logo-title">TalenTag</h1>
-        <img class="logo-icon small" src="images/logo.svg" alt="TalenTag Logo"/>
+        <img class="logo-icon small" src="logo.svg" alt="TalenTag Logo"/>
       </div>
       <div class="talent-cards-title">以下為您推薦第一批次的 10 位人選。</div>
       <div class="talent-cards-area"><!-- JS 動態插入卡片 --></div>
       <div class="talent-cards-controls">
         <button id="card-prev" class="card-nav-btn">上一位</button>
-        <button id="card-next" class="card-nav-btn">下一位</button>
         <button id="contact-btn" class="main-btn">聯絡</button>
       </div>
       <form class="talent-card-input-area" onsubmit="return false;">
         <input type="text" placeholder="加入更多條件" id="talent-card-input"/>
         <button type="submit" id="talent-card-send">
-          <img src="images/send.svg" class="send-icon" alt="送出"/>
+          <img src="send.svg" class="send-icon" alt="送出"/>
         </button>
       </form>
     </section>
